@@ -8,29 +8,29 @@ const int MAX = 100;
 //This is the default constructor to initialize variables
 User::User()
 {
-    char Username[MAX]= " ";
-    char Password[MAX]= " ";
+    char username[MAX]= " ";
+    char password[MAX]= " ";
 }
 /*
 //Function definition for getting user username from file
-User::GetUsername()
+User::getUsername()
 {
 
 }
 
 //Function definition for getting user password from file
-User::GetPassword()
+User::getPassword()
 {
 
 }
 
 //Function definition for hashing the user password input
-User::HashFunction(char Password[])
+User::hashFunction(char Password[])
 {
 
 }
 
-User::VerifyUser()
+User::verifyUser()
 {
     //coming soon
 

@@ -2,7 +2,7 @@
 
 #include "Tools.h"
 
-void Menu()
+void menu()
 {
     char option=' '; // hold user options for N (new user) and L (login)
 
@@ -13,12 +13,14 @@ void Menu()
     switch(toupper(option))
     {
      case 'N':              //New User option
-       //   GetUserInput();
+         getUsernamePassword();
+         findMatch();
 
       break;
 
-     case 'L':              //Login option
-       //   FindMatch();
+     case 'L':              //Find a match already in text file (stored usernames and passwords)
+         getUsernamePassword();
+         verifyUser();
 
       break;
 
@@ -31,7 +33,7 @@ void Menu()
     }
 }
 
-void GetUserInput()
+void getUsernamePassword()
 {
 
 
@@ -41,7 +43,7 @@ void GetUserInput()
 //FindMatch will query the username/passwd file and check for existing
 //entries against what was passed to it
 
-int FindMatch(Username[], Password[])
+int findMatch(username[], password[])
 {
     ifstream infile;
     infile.open ("UserInfo.txt");
@@ -52,7 +54,7 @@ int FindMatch(Username[], Password[])
         char temppasswd[]= " ";
         infile.get(tempusername,100,';')
 
-        if (Username==tempusername)
+        if (username==tempusername)
         {
             return=1;
         }

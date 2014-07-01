@@ -11,8 +11,8 @@ class User
 {
     //private data members
     private:
-        char Username[];
-        char Password[];
+        char username[];
+        char password[];
 
     //public data members
     public:
@@ -20,14 +20,14 @@ class User
         User();
 
         //Accessor functions
-        void GetUsername();
-        void GetPassword();
+        void getUsername();
+        void getPassword();
 
         //Mutator functions
-        void StoreUsername();
-        void StorePassword();
-        void HashFunction();
-        bool VerifyUser();
+        void storeUsername();
+        void storePassword();
+        void hashFunction();
+        bool verifyUser();
 };
 
 

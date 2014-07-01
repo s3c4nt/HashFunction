@@ -4,9 +4,9 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 
-void Menu();
-void GetUserInput();
-void FindMatch();
+void menu();
+void getUsernamePassword();
+void findMatch();
 
 
 #endif
