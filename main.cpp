@@ -4,10 +4,8 @@
    Usage: This program is a demo of how a hash function is used/implemented.
 */
 
-#include <iostream>
 #include "Tools.h"
 #include "UsersClass.h"
-using namespace std;
 
 
 

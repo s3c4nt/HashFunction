@@ -1,6 +1,4 @@
 //Class for the Users
-#include <iostream>
-using namespace std;
 
 #ifndef USERSCLASS_H
 #define USERSCLASS_H

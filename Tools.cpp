@@ -1,6 +1,9 @@
 //Implementation file for Tools.H
 
 #include "Tools.h"
+#include <fstream>
+
+const int MAX = 100;
 
 void menu()
 {
@@ -14,13 +17,11 @@ void menu()
     {
      case 'N':              //New User option
          getUsernamePassword();
-         findMatch();
-
       break;
 
      case 'L':              //Find a match already in text file (stored usernames and passwords)
          getUsernamePassword();
-         verifyUser();
+         //verifyUser();
 
       break;
 
@@ -35,6 +36,32 @@ void menu()
 
 void getUsernamePassword()
 {
+	char username[MAX] = " ";
+	char password[MAX] = " ";
+
+	cout << "Please enter your desired Username: ";
+	cin.get(username, 100, '\n');
+	cin.ignore(100, '\n');
+
+	cout << endl;
+
+	cout << "Now enter your desired Password: ";
+	cin.get(password, 100, '\n');
+	cin.ignore(100, '\n');
+
+	cout << "Checking for errors..." << endl;
+	
+
+
+	if(findMatch(username, password) == 1)
+	{
+		cout << "Username already exists. Login in again." << endl;
+		getUsernamePassword();
+	}
+	else
+	{
+		cout << "we just simulated a hash." << endl;
+		//hashFunction();
 
 
 }
@@ -43,23 +70,23 @@ void getUsernamePassword()
 //FindMatch will query the username/passwd file and check for existing
 //entries against what was passed to it
 
-int findMatch(username[], password[])
+int findMatch(char &username, char &password)
 {
     ifstream infile;
-    infile.open ("UserInfo.txt");
+    infile.open("UserInfo.txt");
 
-    while(!infile.eof)
+    while(!infile.eof())
     {
-        char tempusername[]= " ";
-        char temppasswd[]= " ";
-        infile.get(tempusername,100,';')
+        char tempusername[100]= " ";
+        char temppasswd[100]= " ";
+        infile.get(tempusername, 100, ';');
 
-        if (username==tempusername)
+        if(strcmp(username, tempusername))
         {
-            return=1;
+            return 1;
         }
 
-        infile.ignore(temppasswd,100,'/n');
+        infile.ignore(100, '\n');
     }
     return 0;
 }

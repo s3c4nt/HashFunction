@@ -1,12 +1,13 @@
 //Header file for all utilities used throughout the program
 #include "UsersClass.h"
-
+#include <iostream>
+using namespace std;
 #ifndef TOOLS_H
 #define TOOLS_H
 
 void menu();
 void getUsernamePassword();
-void findMatch();
+int findMatch(char &, char &);
 
 
 #endif
