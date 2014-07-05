@@ -43,14 +43,14 @@ int getUsernamePassword()
 	cout << "Please enter your desired Username: ";
 	cin>>username;
 	//	cin.ignore(100, '\n');
-	//we ask the user to pick a username here - they should type a username which the above cin.get takes in...why are we ignoring a second line of input that we did not ask for? this was most likely left over from when getUsernamePassword was used for more than user account creation. - s3c4nt
+	//this function should really be createUsername password the cin.get statements would be for reading one character from the file. maximum derp  - s3c4nt
 
 	cout << endl; //not sure why this is here, after they type a username they hit enter which should move it down by default.
 
 	cout << "Now enter your desired Password: ";
 	cin>>password;
 	//	cin.ignore(100, '\n');
-	//again, we ask them for one line of text and use a cin.get to grab that but randomly have a cin.ignore to ignore the second line of text they were not prompted for and won't enter - s3c4nt
+	//again cin.get and cin.ignore when we should just be storing user input - s3c4nt allmwhy
 
 	cout << "Checking for errors..." << endl;
 	
