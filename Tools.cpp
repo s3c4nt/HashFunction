@@ -1,4 +1,4 @@
-//Implementation file for Tools.H
+//This is the Tools implementation file
 
 #include "Tools.h"
 #include <fstream>
@@ -98,5 +98,3 @@ int findMatch(char &username, char &password)
     }
     return 0;
 }
-
-
