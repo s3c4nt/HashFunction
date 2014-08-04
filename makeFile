@@ -1,0 +1,2 @@
+main: Tools.h UsersClass.h Tools.cpp UsersClass.cpp main.cpp
+	g++ main.cpp -o main2.o

@@ -10,7 +10,7 @@ void menu()
   char makeOptionUpperCase= ' ';  
   char option=' '; // hold user options for N (new user) and L (login)
     
-    cout <<" (N) New User \n (L) Login \n (Q) Quit \n your choice: ";
+    std::cout <<" (N) New User \n (L) Login \n (Q) Quit \n your choice: ";
 
     cin >> makeOptionUpperCase;  //read in user choice for new user creation or login
     option = toupper(makeOptionUpperCase); //toupper does not change the parameter
@@ -31,7 +31,7 @@ void menu()
       break;
 
      default:
-       cout<< "Error: Please Choose Again:";
+       std::cout<< "Error: Please Choose Again:";
        menu();
     }
 }
@@ -46,16 +46,16 @@ void getUsernamePassword()
 
 
 	//get username from user
-	cout << "Please enter your desired Username: ";
+	std::cout << "Please enter your desired Username: ";
 	cin>>username;
 	
 
 	//get password from user
-	cout << "Now enter your desired Password: ";
+	std::cout << "Now enter your desired Password: ";
 	cin>>password;
 
 	//check to make sure the username and password does not already exist
-	cout << "Checking for errors..." << endl;
+	std::cout << "Checking for errors..." << std::endl;
 	matchValue = findMatch(username, password); 
 	if(matchValue >= 1)
 	{
