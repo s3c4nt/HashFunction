@@ -18,59 +18,59 @@ void menu()
     {
      case 'N':              //New User option
          getUsernamePassword();
+	 menu();
       break;
 
      case 'L':              //Find a match already in text file (stored usernames and passwords)
          getUsernamePassword();
          //verifyUser();
-
+	 menu();
       break;
 
      case 'Q':            //quit the program option
-
       break;
 
      default:
        cout<< "Error: Please Choose Again:";
+       menu();
     }
 }
 
-int getUsernamePassword() 
+void getUsernamePassword() 
 {
-  char username[MAX] = " ";
-  char password[MAX] = " ";
-  int outputValue;
+	//variables
+  	char username[MAX] = " ";
+  	char password[MAX] = " ";
+	char hashpass[MAX] = " ";
+  	int matchValue = 0;
+
+
+	//get username from user
 	cout << "Please enter your desired Username: ";
 	cin>>username;
-	//	cin.ignore(100, '\n');
-	//this function should really be createUsername password the cin.get statements would be for reading one character from the file. maximum derp  - s3c4nt
+	
 
-	cout << endl; //not sure why this is here, after they type a username they hit enter which should move it down by default.
-
+	//get password from user
 	cout << "Now enter your desired Password: ";
 	cin>>password;
-	//	cin.ignore(100, '\n');
-	//again cin.get and cin.ignore when we should just be storing user input - s3c4nt allmwhy
 
+	//check to make sure the username and password does not already exist
 	cout << "Checking for errors..." << endl;
-	
-	char *tempUname = username;
-	char *tempPass = password;
-	  outputValue = findMatch(*tempUname,*tempPass);
-
-	if(outputValue == 1) 
+	matchValue = findMatch(username, password); 
+	if(matchValue >= 1)
 	{
-		cout << "Username already exists. Please choose another." << endl;
+		std::cout << "Username already exists. Please choose another." << std::endl;
 		getUsernamePassword();
 	}
 	else
 	{
-		cout << " hash function will output to file!." << endl;
-		//hashFunction();
-
-
+		//hashFunction(password);
+		//outfile.write(username, hashpass);
+		std::cout << "Congratulations. Your Username and Password have been saved." << std::endl;
 	}
 }
+
+
 
 //FindMatch will query the username/passwd file and check for existing
 //entries against what was passed to it
