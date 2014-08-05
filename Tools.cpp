@@ -18,13 +18,11 @@ void menu()
     {
      case 'N':              //New User option
          getUsernamePassword();
-	 menu();
       break;
 
      case 'L':              //Find a match already in text file (stored usernames and passwords)
          getUsernamePassword();
          //verifyUser();
-	 menu();
       break;
 
      case 'Q':            //quit the program option
@@ -32,7 +30,7 @@ void menu()
 
      default:
        std::cout<< "Error: Please Choose Again:";
-       menu();
+
     }
 }
 
