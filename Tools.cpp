@@ -1,9 +1,8 @@
 //This is the Tools implementation file
 
-#include "Tools.h"
 #include <fstream>
 
-const int MAX = 100;
+const int MAX = 99;
 
 void menu()
 {
@@ -22,15 +21,15 @@ void menu()
 
      case 'L':              //Find a match already in text file (stored usernames and passwords)
          getUsernamePassword();
-         //verifyUser();
+         verifyUser();
       break;
 
      case 'Q':            //quit the program option
       break;
 
      default:
-       std::cout<< "Error: Please Choose Again:";
-
+       std::cout << "***Error: Please Choose Again!***";
+       menu();	
     }
 }
 
