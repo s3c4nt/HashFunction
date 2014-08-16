@@ -1,42 +1,47 @@
 //This is the Tools implementation file
 
+<<<<<<< HEAD
+=======
 #include "Tools.h"
 //#include "UsersClass.h"
 #include <iostream>
 #include <string>
 #include <cstring>
+>>>>>>> 39b6a91a128620c5d2cfd17da82316f0f1492211
 #include <fstream>
 
-const int MAX = 100;
+const int MAX = 99;
 
 void menu()
 {
-  char makeOptionUpperCase= ' ';  
-  char option=' '; // hold user options for N (new user) and L (login)
+    char option=' '; // hold user options for N (new user) and L (login)
     
     std::cout <<" (N) New User \n (L) Login \n (Q) Quit \n your choice: ";
+    std::cin >> option;
 
+<<<<<<< Updated upstream
 std::cin >> option; // makeOptionUpperCase;  //read in user choice for new user creation or login
 //  option = toupper(makeOptionUpperCase); //toupper does not change the parameter
 switch(toupper(option))
+=======
+    switch(toupper(option))
+>>>>>>> Stashed changes
     {
      case 'N':              //New User option
          getUsernamePassword();
-	 menu();
       break;
 
      case 'L':              //Find a match already in text file (stored usernames and passwords)
          getUsernamePassword();
-         //verifyUser();
-	 menu();
+         verifyUser();
       break;
 
      case 'Q':            //quit the program option
       break;
 
      default:
-       std::cout<< "Error: Please Choose Again:";
-       menu();
+       std::cout << "***Error: Please Choose Again!***";
+       menu();	
     }
 }
 
@@ -57,7 +62,10 @@ char hashpass[MAX] = {0};
 	//get password from user
 	std::cout << "Now enter your desired Password: ";
 	std::cin >> password;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 	//check to make sure the username and password does not already exist
 	std::cout << "Checking for errors..." << std::endl;
