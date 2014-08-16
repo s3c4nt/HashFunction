@@ -1,5 +1,13 @@
 //This is the Tools implementation file
 
+<<<<<<< HEAD
+=======
+#include "Tools.h"
+//#include "UsersClass.h"
+#include <iostream>
+#include <string>
+#include <cstring>
+>>>>>>> 39b6a91a128620c5d2cfd17da82316f0f1492211
 #include <fstream>
 
 const int MAX = 99;
@@ -11,9 +19,9 @@ void menu()
     
     std::cout <<" (N) New User \n (L) Login \n (Q) Quit \n your choice: ";
 
-    cin >> makeOptionUpperCase;  //read in user choice for new user creation or login
-    option = toupper(makeOptionUpperCase); //toupper does not change the parameter
-    switch(option)
+std::cin >> option; // makeOptionUpperCase;  //read in user choice for new user creation or login
+//  option = toupper(makeOptionUpperCase); //toupper does not change the parameter
+switch(toupper(option))
     {
      case 'N':              //New User option
          getUsernamePassword();
@@ -36,25 +44,27 @@ void menu()
 void getUsernamePassword() 
 {
 	//variables
-  	char username[MAX] = " ";
-  	char password[MAX] = " ";
-	char hashpass[MAX] = " ";
+char username[MAX] = {0};
+char password[MAX] = {" "};
+char hashpass[MAX] = {0};
   	int matchValue = 0;
 
 
 	//get username from user
 	std::cout << "Please enter your desired Username: ";
-	cin>>username;
+	std::cin >> username;
 	
 
 	//get password from user
 	std::cout << "Now enter your desired Password: ";
-	cin>>password;
+	std::cin >> password;
+
 
 	//check to make sure the username and password does not already exist
 	std::cout << "Checking for errors..." << std::endl;
+
 	matchValue = findMatch(username, password); 
-	if(matchValue >= 1)
+	if(matchValue = 0)
 	{
 		std::cout << "Username already exists. Please choose another." << std::endl;
 		getUsernamePassword();
@@ -69,29 +79,31 @@ void getUsernamePassword()
 
 
 
-//FindMatch will query the username/passwd file and check for existing
-//entries against what was passed to it
+//FindMatch will query the username/passwd file and check for new user entries
 
-int findMatch(char &username, char &password)
+int findMatch(char username [], char password []) 
 {
-    ifstream infile;
-    infile.open("UserInfo.txt");
-    char unameplaceholder[MAX] = " ";
-    unameplaceholder[MAX] = username;
-    char pwdplaceholder[MAX] = " ";
-    pwdplaceholder[MAX] = password;
+  std::ifstream infile;
+    infile.open("UserInfo.txt",std::ifstream::in);
+// char unameplaceholder[MAX] = {0};
+//  unameplaceholder = username;
+// char pwdplaceholder[MAX] = {0};
+//  pwdplaceholder = password;
     while(!infile.eof())
     {
-        char tempusername[MAX]= " ";
-        char temppasswd[MAX]= " ";
+    char tempusername[MAX]= {0};
+    char temppasswd[MAX]= {0};
         infile.get(tempusername, 100, ';');
-
-        if(strncmp(unameplaceholder, tempusername,100) == 1)
+	infile.get(temppasswd, 100, '\n');
+	// int matchvalue = strncmp(unameplaceholder, tempusername,100);
+	if( tempusername == username)
         {
-            return 1;
-        }
+	  return 0;  //match found so user exists
+        } else {
+	  return 1; //no match found, user does not exist
+	}
 
-        infile.ignore(100, '\n'); //this ignores the pwds in UserInfo.txt
+	// infile.ignore(100, '\n'); //this ignores the pwds in UserInfo.txt
     }
-    return 0;
 }
+
