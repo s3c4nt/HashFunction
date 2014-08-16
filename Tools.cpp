@@ -14,14 +14,18 @@ const int MAX = 99;
 
 void menu()
 {
-  char makeOptionUpperCase= ' ';  
-  char option=' '; // hold user options for N (new user) and L (login)
+    char option=' '; // hold user options for N (new user) and L (login)
     
     std::cout <<" (N) New User \n (L) Login \n (Q) Quit \n your choice: ";
+    std::cin >> option;
 
+<<<<<<< Updated upstream
 std::cin >> option; // makeOptionUpperCase;  //read in user choice for new user creation or login
 //  option = toupper(makeOptionUpperCase); //toupper does not change the parameter
 switch(toupper(option))
+=======
+    switch(toupper(option))
+>>>>>>> Stashed changes
     {
      case 'N':              //New User option
          getUsernamePassword();
@@ -58,7 +62,10 @@ char hashpass[MAX] = {0};
 	//get password from user
 	std::cout << "Now enter your desired Password: ";
 	std::cin >> password;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 	//check to make sure the username and password does not already exist
 	std::cout << "Checking for errors..." << std::endl;
